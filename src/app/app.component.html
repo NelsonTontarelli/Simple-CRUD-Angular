@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-transparent">
+  <a href="/" class="navbar-brand">
+    Angular Simple CRUD
+  </a>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mt-1">
+        <div class="card-body">
+          <div class="card-title">
+            Insert a new Employee
+          </div>
+          <div class="input-group">
+            <input type="text" [(ngModel)]="selectedEmployee.name" placeholder="Insert a Name" class="from-control">
+          </div>
+          <div class="from-group">
+            <input type="text" [(ngModel)]="selectedEmployee.country" placeholder="Insert a Country" class="from-control mt-3">
+          </div>
+          <button 
+          (click)="addOrEdit()" 
+          class="btn btn-primary mt-3">Submit</button>
+          <button 
+          *ngIf="selectedEmployee.id !== 0" 
+          class="btn btn-danger mt-3 ms-2" 
+          (click)="delete()"
+          >Delete</button>
+        </div>
+      </div>
+      <ul class="list-group mt-2">
+        <li
+        *ngFor="let employee of employeeArray" 
+        class="list-group-item list-group-item-action"
+        (click)="openEdit(employee)"
+        [class.active]="employee == selectedEmployee" 
+        >
+          <span class="badge rounded-pill text-bg-primary">{{ employee.id }}</span> {{ employee.name }} - {{ employee.country }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <img width="100" alt="Angular Logo"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+    </div>
+  </div>
+</div>
