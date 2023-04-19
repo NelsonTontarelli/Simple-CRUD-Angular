@@ -9,8 +9,8 @@ import { Employee } from './models/employee'
 export class AppComponent {
 
   employeeArray: Employee[] = [
-    { id: 1, name: "Nelson", country: "Argentina" },
-    { id: 2, name: "Dianela", country: "Argentina" }
+    { id: 1, name: "Nelson", country: "Argentina", job: "Developer", title: "Fron-End Jr" },
+    { id: 2, name: "Dianela", country: "Argentina", job: "Developer", title: "Fron-End Senior" }
   ];
 
   selectedEmployee: Employee = new Employee();
